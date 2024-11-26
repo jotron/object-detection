@@ -1,7 +1,14 @@
 from ultralytics import YOLO
+import os
+import comet_ml
+import torch
 
-BATCH_SIZE = 16
-IMAGE_SIZE = 640
+comet_ml.login()
+
+assert(torch.cuda.is_available())
+
+BATCH_SIZE = -1
+IMAGE_SIZE = 1920
 EPOCHS = 10
 
 model = YOLO("yolo11n.pt")
@@ -11,8 +18,10 @@ train_results = model.train(
     data="datasets/raw/dataset.yaml",  # path to dataset YAML
     epochs=EPOCHS,  # number of training epochs
     imgsz=IMAGE_SIZE,  # training image size
-    device="mps",  # or cpu
+    device=0,  # or cpu
     batch=BATCH_SIZE,
     workers=8,
-    val = False
+    cache=True,
+    plots=True,
+    close_mosaic=2,
 )
