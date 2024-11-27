@@ -11,7 +11,7 @@ BATCH_SIZE = -1
 IMAGE_SIZE = 1920
 EPOCHS = 10
 
-model = YOLO("yolo11n.pt")
+model = YOLO("yolo11m.pt")
 
 # Train the model
 train_results = model.train(
@@ -21,7 +21,6 @@ train_results = model.train(
     device=0,  # or cpu
     batch=BATCH_SIZE,
     workers=8,
-    cache=True,
     plots=True,
     close_mosaic=2,
 )

@@ -1,7 +1,13 @@
 from ultralytics import YOLO
+import os
 
-DETECTION_MODEL = './runs/train/best.pt'
+DETECTION_MODEL = './runs/trainv1/weights/best.pt'
 
 model = YOLO(DETECTION_MODEL)
 
-tracking = model.track("RBK_TDT17/4_annotate_1min_bodo_start/4_annotate_1min_bodo_start.mp4", save=True, show_conf=True, device='mps', conf=0.1)
+tracking = model.track("test/4_annotate_1min_bodo_start.mp4", 
+                       tracker="track.yaml", 
+                       save=True, 
+                       show_conf=True,
+                       device="cpu", 
+                       conf=0.5)
