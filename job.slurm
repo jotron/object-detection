@@ -6,8 +6,8 @@
 #SBATCH --gres=gpu:1              # Setting the number of GPUs to 1
 #SBATCH --mem=32G                 
 #SBATCH --nodes=1
-#SBATCH --output=logs/visual3.txt      # Specifying 'stdout'
-#SBATCH --error=logs/visual3.err        # Specifying 'stderr'
+#SBATCH --output=logs/visual.txt      # Specifying 'stdout'
+#SBATCH --error=logs/visual.err        # Specifying 'stderr'
 #SBATCH --mail-user=joelra@ntnu.no
 #SBATCH --mail-type=ALL
 
@@ -25,4 +25,4 @@ module load Anaconda3/2024.02-1
 
 nvidia-smi
 conda activate ./envs
-jupyter notebook --no-browser
+python train.py

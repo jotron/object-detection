@@ -25,4 +25,4 @@ module load Anaconda3/2024.02-1
 
 nvidia-smi
 conda activate ./envs
-python train.py
+jupyter notebook --no-browser
