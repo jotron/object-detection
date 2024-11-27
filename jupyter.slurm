@@ -6,8 +6,8 @@
 #SBATCH --gres=gpu:1              # Setting the number of GPUs to 1
 #SBATCH --mem=32G                 
 #SBATCH --nodes=1
-#SBATCH --output=logs/visual3.txt      # Specifying 'stdout'
-#SBATCH --error=logs/visual3.err        # Specifying 'stderr'
+#SBATCH --output=logs/jupyter.txt      # Specifying 'stdout'
+#SBATCH --error=logs/jupyter.err        # Specifying 'stderr'
 #SBATCH --mail-user=joelra@ntnu.no
 #SBATCH --mail-type=ALL
 
